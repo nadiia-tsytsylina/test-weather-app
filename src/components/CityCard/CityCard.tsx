@@ -48,7 +48,7 @@ export const CityCard = ({ city, onDelete }: CityCardProps): ReactElement => {
           }}
         >
           {isLoading ? (
-            <CircularProgress />
+            <CircularProgress data-testid="loading-indicator" />
           ) : !data || !weather ? (
             <Typography variant="h6" color="text.secondary">
               No data available

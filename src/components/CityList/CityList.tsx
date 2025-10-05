@@ -27,7 +27,7 @@ export const CityList: FC<CityListProps> = ({
       }}
     >
       {isLoading ? (
-        <CircularProgress />
+        <CircularProgress data-testid="loading-indicator" />
       ) : cities && cities.length > 0 ? (
         cities.map((city) => (
           <CityCard

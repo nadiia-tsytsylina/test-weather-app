@@ -77,7 +77,7 @@ export const CityDetails = ({ lat, lon }: CityDetailsProps): ReactElement => {
         sx={{ minHeight: 400 }}
       >
         {isLoading ? (
-          <CircularProgress />
+          <CircularProgress data-testid="loading-indicator" />
         ) : (
           <Typography>No data available</Typography>
         )}

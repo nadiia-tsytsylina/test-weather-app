@@ -9,7 +9,7 @@ import { CityList } from '../CityList';
 
 export const Main = (): ReactElement => {
   const [isClientLoaded, setIsClientLoaded] = useState(false);
-  const cities = useSelector((state: RootState) => state.cities);
+  const cities = useSelector<RootState, City[]>((state) => state.cities);
   const dispatch = useDispatch();
 
   useEffect(() => {
