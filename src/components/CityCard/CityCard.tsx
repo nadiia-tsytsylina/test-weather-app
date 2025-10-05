@@ -1,5 +1,6 @@
 'use client';
 import Link from 'next/link';
+import Image from 'next/image';
 import { ReactElement } from 'react';
 import Card from '@mui/material/Card';
 import CardContent from '@mui/material/CardContent';
@@ -63,7 +64,12 @@ export const CityCard = ({ city, onDelete }: CityCardProps): ReactElement => {
                 {name}, {country}
               </Typography>
               <Stack direction="column" alignItems="center">
-                <img src={iconUrl} alt={weather.description} />
+                <Image
+                  src={iconUrl}
+                  alt={weather.description}
+                  width={100}
+                  height={100}
+                />
                 <Typography variant="body1" color="text.secondary">
                   {weather.main}
                 </Typography>
