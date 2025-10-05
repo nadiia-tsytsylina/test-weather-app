@@ -6,6 +6,7 @@ import { City } from '@/common/types';
 import { addCity, removeCity, RootState, setCities } from '@/store';
 import { ComboBox } from '../Combobox';
 import { CityList } from '../CityList';
+import { CurrentLocation } from '../CurrentLocation';
 
 export const Main = (): ReactElement => {
   const [isClientLoaded, setIsClientLoaded] = useState(false);
@@ -29,6 +30,7 @@ export const Main = (): ReactElement => {
 
   return (
     <Stack gap={4} alignItems="center" px={3}>
+      <CurrentLocation />
       <Box sx={{ maxWidth: 1000, width: '100%' }}>
         <ComboBox onSelectCity={handleAddCity} selectedCities={cities} />
       </Box>
