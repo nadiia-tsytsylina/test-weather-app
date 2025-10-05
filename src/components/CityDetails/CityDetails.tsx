@@ -132,6 +132,7 @@ export const CityDetails = ({ lat, lon }: CityDetailsProps): ReactElement => {
             variant="h4"
             sx={{
               fontSize: { xs: '1.25rem', sm: '1.5rem', lg: '2rem' },
+              textAlign: { xs: 'center', sm: 'left' },
             }}
           >
             Detailed Weather Information for next hour
