@@ -1,36 +1,64 @@
+# 🌦️ Weather App
+
 This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
 
-## Getting Started
+## 🚀 Tech Stack
 
-First, run the development server:
+- **Next.js 14**
+- **TypeScript**
+- **Material UI (MUI)** 
+- **OpenWeather API** 
+- **Recharts**
 
-```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
-```
+## ⚙️ Getting Started
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+1. **Clone the repository:**
+   ```bash
+   git clone https://github.com/nadiia-tsytsylina/weather-app.git
+   cd weather-app
+   
+2. **Install dependencies:**
+   ```bash
+   npm install
+   ```
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+3. **Add environment variables:**  
+   Create a `.env.local` file in the root directory and add your API key:
+   ```
+   NEXT_PUBLIC_WEATHER_API_KEY=your_api_key_here
+   ```
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+4. **Run the development server:**
+   ```bash
+   npm run dev
+   ```
 
-## Learn More
+5. Open [http://localhost:3000](http://localhost:3000) in your browser.
 
-To learn more about Next.js, take a look at the following resources:
+---
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+## 🌤️ Features
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+- 🔍 Search weather by city  
+- 📅 Multi-day forecast  
+- ⏱️ Hourly detailed forecast  
+- 📈 Interactive temperature and humidity charts  
+- 🌓 Fully responsive design  
 
-## Deploy on Vercel
+---
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+## 📦 Deployment
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+The easiest way to deploy this app is via **[Vercel](https://vercel.com/)** — the creators of Next.js.  
+Simply import your repository and configure environment variables in the project settings.
+
+---
+
+### Author
+
+[Nadiia Tsytsylina](https://github.com/nadiia-tsytsylina)
+
+[![Linkedin](https://img.shields.io/badge/LinkedIn-0077B5?style=for-the-badge&logo=linkedin&logoColor=white)](https://www.linkedin.com/in/nadiia-tsytsylina/)
+[![Github](https://img.shields.io/badge/GitHub-100000?style=for-the-badge&logo=github&logoColor=white)](https://github.com/nadiia-tsytsylina)
+[![Telegram](https://img.shields.io/badge/Telegram-2CA5E0?style=for-the-badge&logo=telegram&logoColor=white)](https://t.me/Nadiia_tsytsylina)
+[![Gmail](https://img.shields.io/badge/Gmail-D14836?style=for-the-badge&logo=gmail&logoColor=white)](mailto:miniova95@gmail.com)
