@@ -1,11 +1,14 @@
 import { useEffect, useState, useCallback } from 'react';
+import { useDispatch, useSelector } from 'react-redux';
+import { RootState } from '@/store';
+import { setCoords } from '@/store/geoSlice';
 
 export const useGeolocation = () => {
-  const [coords, setCoords] = useState<{ lat: number; lon: number } | null>(
-    null,
-  );
+  const dispatch = useDispatch();
+  const savedCoords = useSelector((state: RootState) => state.geo.coords);
+
   const [error, setError] = useState<string | null>(null);
-  const [isLoading, setIsLoading] = useState(true);
+  const [isLoading, setIsLoading] = useState(!savedCoords);
 
   const requestLocation = useCallback(() => {
     if (!navigator.geolocation) {
@@ -19,10 +22,11 @@ export const useGeolocation = () => {
 
     navigator.geolocation.getCurrentPosition(
       (position) => {
-        setCoords({
+        const coords = {
           lat: position.coords.latitude,
           lon: position.coords.longitude,
-        });
+        };
+        dispatch(setCoords(coords));
         setIsLoading(false);
       },
       (err) => {
@@ -30,11 +34,15 @@ export const useGeolocation = () => {
         setIsLoading(false);
       },
     );
-  }, []);
+  }, [dispatch]);
 
   useEffect(() => {
-    requestLocation();
-  }, [requestLocation]);
+    if (!savedCoords) {
+      requestLocation();
+    } else {
+      setIsLoading(false);
+    }
+  }, [savedCoords, requestLocation]);
 
-  return { coords, error, isLoading };
+  return { coords: savedCoords, error, isLoading };
 };

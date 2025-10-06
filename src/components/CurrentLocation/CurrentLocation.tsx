@@ -1,13 +1,18 @@
+import Image from 'next/image';
 import { useGeolocation } from '@/common/hooks/useGeolocation';
 import { getWeatherIcon } from '@/common/utils';
 import { useGetWeatherByCityQuery } from '@/store';
-import { CircularProgress, Stack, Typography } from '@mui/material';
+import { CircularProgress, IconButton, Stack, Typography } from '@mui/material';
 import { skipToken } from '@reduxjs/toolkit/query';
-import Image from 'next/image';
+import AutorenewRoundedIcon from '@mui/icons-material/AutorenewRounded';
 
 export const CurrentLocation = () => {
   const { coords, error, isLoading } = useGeolocation();
-  const { data, isLoading: isDataLoading } = useGetWeatherByCityQuery(
+  const {
+    data,
+    isLoading: isDataLoading,
+    refetch,
+  } = useGetWeatherByCityQuery(
     coords ? { lat: coords.lat, lon: coords.lon } : skipToken,
   );
   const weather = data?.weather?.[0];
@@ -77,6 +82,10 @@ export const CurrentLocation = () => {
               </Typography>
             </Stack>
           </Stack>
+
+          <IconButton size="large" onClick={refetch}>
+            <AutorenewRoundedIcon />
+          </IconButton>
         </>
       )}
     </Stack>

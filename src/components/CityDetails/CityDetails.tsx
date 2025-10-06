@@ -12,8 +12,8 @@ import {
 } from '@mui/material';
 import WaterRoundedIcon from '@mui/icons-material/WaterRounded';
 import ThermostatRoundedIcon from '@mui/icons-material/ThermostatRounded';
-import { WeatherDetailsColumn } from './WeatherDetailsColumn';
 import { BackButton } from '../BackButton';
+import { WeatherDetails } from './WeatherDetails';
 
 interface CityDetailsProps {
   lat: number;
@@ -26,29 +26,17 @@ export const CityDetails = ({ lat, lon }: CityDetailsProps): ReactElement => {
   const next1h = data?.list[0];
   const next24h = data?.list.slice(0, 8);
 
-  const column1 = useMemo(() => {
+  const columns = useMemo(() => {
     if (!next1h) return [];
     return [
       { label: 'Temp', value: next1h.main.temp, unit: '°C' },
       { label: 'Feels like', value: next1h.main.feels_like, unit: '°C' },
       { label: 'Min', value: next1h.main.temp_min, unit: '°C' },
       { label: 'Max', value: next1h.main.temp_max, unit: '°C' },
-    ];
-  }, [next1h]);
-
-  const column2 = useMemo(() => {
-    if (!next1h) return [];
-    return [
       { label: 'Humidity', value: next1h.main.humidity, unit: '%' },
       { label: 'Pressure', value: next1h.main.pressure, unit: 'hPa' },
       { label: 'Chance of rain', value: next1h.pop * 100, unit: '%' },
       { label: 'Wind', value: `${next1h.wind.speed} m/s, ${next1h.wind.deg}°` },
-    ];
-  }, [next1h]);
-
-  const column3 = useMemo(() => {
-    if (!next1h) return [];
-    return [
       { label: 'Clouds', value: next1h.clouds.all, unit: '%' },
       ...(next1h.visibility
         ? [{ label: 'Visibility', value: next1h.visibility, unit: 'm' }]
@@ -137,19 +125,7 @@ export const CityDetails = ({ lat, lon }: CityDetailsProps): ReactElement => {
           >
             Detailed Weather Information for next hour
           </Typography>
-          <Stack
-            direction="row"
-            flexWrap="wrap"
-            gap={{ xs: 1, sm: 2, lg: 3 }}
-            justifyContent="center"
-          >
-            <WeatherDetailsColumn items={column1} />
-            <WeatherDetailsColumn items={column2} />
-            <WeatherDetailsColumn
-              items={column3}
-              sx={{ display: { xs: 'none', md: 'flex' } }}
-            />
-          </Stack>
+          <WeatherDetails items={columns} />
         </Stack>
       </Stack>
 
