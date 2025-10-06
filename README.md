@@ -40,7 +40,6 @@ This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-
 ## 🌤️ Features
 
 - 🔍 Search weather by city  
-- 📅 Multi-day forecast  
 - ⏱️ Hourly detailed forecast  
 - 📈 Interactive temperature and humidity charts  
 - 🌓 Fully responsive design  
